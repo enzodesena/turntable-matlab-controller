@@ -1,5 +1,7 @@
-% This function runs the turntable through its paces, going back and 
-% forth a few times, checking it doesn't skip an angle etc. 
+% turntableTest Turntable test function
+% 
+% turntableTest() function runs the turntable through its paces, going back 
+% and  forth a few times, checking it doesn't skip an angle etc. 
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
