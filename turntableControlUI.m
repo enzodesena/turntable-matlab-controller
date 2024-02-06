@@ -1,8 +1,17 @@
+% turntableControlUI Turntable UI control
+% 
+% turntableControlUI() opens a small user interface to control the
+% turntable. If the turntable object hasn't been created yet it calls 
+% turntableConnect(). A few buttons have been removed to ensure the
+% turntable is used correctly. 
+%
+% Author: Enzo De Sena
+% Date 6/2/2024
 function turntableControlUI
-%     global turntableController;
-%     if isempty(turntableController)
-%         turntableConnect();
-%     end
+    global turntableController;
+    if isempty(turntableController)
+        turntableConnect();
+    end
 
     % Create a figure for the UI
     fig = figure('Name', 'Turntable Control', 'Position', [100, 100, 350, 250]);
