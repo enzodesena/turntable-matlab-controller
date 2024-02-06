@@ -72,18 +72,18 @@ function turntableControlUI
 
     % Callback function to start rotation clockwise
     function startRotateCW(~, ~)
-        turntableStart('clockwise');
+        turntablePrivateStart('clockwise');
         updateAngleDisplay();
     end
 
     % Callback function to start rotation counterclockwise
     function startRotateCCW(~, ~)
-        turntableStart('counterclockwise');
+        turntablePrivateStart('counterclockwise');
     end
 
     % Callback function to stop rotation
     function stopRotate(~, ~)
-        turntableStop();
+        turntablePrivateStop();
     end
 
     % Function to update the angle display

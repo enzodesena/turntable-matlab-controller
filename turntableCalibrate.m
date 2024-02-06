@@ -25,13 +25,13 @@ function runStepCalibration()
 
 function averageSensorGroupLength = runStepCalibrationDirection(direction)
     global turntableController;
-    turntableStart(direction);
+    turntablePrivateStart(direction);
     N = 400;
     voltage = nan(1, N);
     for n=1:N
         voltage(n) = readVoltage(turntableController.arduinoObj, turntableController.arduinoStepPin);
     end
-    turntableStop(turntableController);
+    turntablePrivateStop(turntableController);
     stem(1:N, voltage);
     xlabel('Measurement index')
     ylabel('Step sensor [V]')
@@ -48,7 +48,7 @@ function runZeroCalibration()
     N = 400;
     voltage = nan(1, N);
     currentDirection = 'counterclockwise';
-    turntableStart(currentDirection);
+    turntablePrivateStart(currentDirection);
     nLastAboveThreshold = nan;
     for n=1:N
         voltage(n) = readVoltage(turntableController.arduinoObj, turntableController.arduinoZeroPin);
@@ -57,17 +57,17 @@ function runZeroCalibration()
         end
         if (n-nLastAboveThreshold) > 30
             nLastAboveThreshold = nan;
-            turntableStop(turntableController);
+            turntablePrivateStop(turntableController);
             if strcmp(currentDirection, 'counterclockwise')
                 currentDirection = 'clockwise';
             else
                 currentDirection = 'counterclockwise';
             end
-            turntableStart(currentDirection);
+            turntablePrivateStart(currentDirection);
         end
     end
     
-    turntableStop();
+    turntablePrivateStop();
     stem(1:N, voltage);
     xlabel('Measurement index')
     ylabel('Zero sensor [V]')

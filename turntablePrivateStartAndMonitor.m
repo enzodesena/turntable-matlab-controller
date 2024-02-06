@@ -1,11 +1,11 @@
-function successful = turntableStartAndMonitor(rotationDirection, pinToMonitor, threshold, minimumNumSec, maxNumSec)
+function successful = turntablePrivateStartAndMonitor(rotationDirection, pinToMonitor, threshold, minimumNumSec, maxNumSec)
     global turntableController;
     if isempty(turntableController)
         error('Looks like there is no turntable controller in the workspace. Please call turntableConnect.');
     end
     
     %% Start rotating
-    turntableStart(rotationDirection);
+    turntablePrivateStart(rotationDirection);
     
     %% Check if reached next tick
     previousVoltage = 0; % Take the average between two readings (for robustness)
@@ -31,4 +31,4 @@ function successful = turntableStartAndMonitor(rotationDirection, pinToMonitor, 
     end
     
     %% Stop turntable
-    turntableStop()
+    turntablePrivateStop()

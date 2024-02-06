@@ -34,7 +34,7 @@ function turntableConnect(serialPort)
     
     %% Test motor is connected
     disp('Checking that the motor is connected..')
-    turntableStart('clockwise');
+    turntablePrivateStart('clockwise');
     currentDrawn = false;
     for n=1:20 % Try a few times
         current = readVoltage(turntableController.arduinoObj, 'A0');
@@ -43,7 +43,7 @@ function turntableConnect(serialPort)
             break
         end
     end
-    turntableStop();
+    turntablePrivateStop();
     if not(currentDrawn)
         turntableDisconnect(); 
         error('No current is being drawn by the motor. Are you sure the turntable cable is connected?')

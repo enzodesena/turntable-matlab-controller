@@ -1,13 +1,13 @@
-% turntableStop Turntable stop function
+% turntablePrivateStop Turntable stop function (private function)
 % 
-% turntableStop() Stops rotating the turntable. 
+% turntablePrivateStop() Stops rotating the turntable. 
 % You should not run this function directly. 
 % Use turntableTick or turntableRotateToZero instead.
 % 
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
-function turntableStop()
+function turntablePrivateStop()
     global turntableController;
     if isempty(turntableController)
         error('Looks like there is no turntable controller in the workspace. Please call turntableConnect');

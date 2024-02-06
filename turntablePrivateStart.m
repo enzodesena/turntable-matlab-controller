@@ -1,6 +1,6 @@
-% turntableStart Turntable start function
+% turntablePrivateStart Turntable start function (private function)
 % 
-% turntableStart(DIRECTION) Starts rotating the 
+% turntablePrivateStart(DIRECTION) Starts rotating the 
 % turntable. You should not run this function directly. 
 % Use turntableTick or turntableRotateToZero instead.
 % 
@@ -8,7 +8,7 @@
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
-function turntableStart(direction)
+function turntablePrivateStart(direction)
     assert(strcmp(direction, 'clockwise') || strcmp(direction, 'counterclockwise'));
     global turntableController;
     if isempty(turntableController)
