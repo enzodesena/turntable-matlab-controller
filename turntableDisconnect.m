@@ -1,6 +1,6 @@
 % turntableGetAngle Turntable get angle function
 % 
-% ANGLE = turntableGetAngle(CONTROLLER) Returns the current presumed angle. 
+% ANGLE = turntableGetAngle() Returns the current presumed angle. 
 % This is `presumed` because it is calculated by keeping track of how many 
 % calls have been made (one way or the other) to turntableTick. 
 % The only case where we actually know where the turntable actually is, 
