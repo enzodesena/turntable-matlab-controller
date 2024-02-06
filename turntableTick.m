@@ -13,14 +13,21 @@
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
-function exitStatus = turntableTick(rotationDirection)
+function exitStatus = turntableTick(rotationDirection, ignoreCounterClockwiseWarning)
     global turntableController;
     if isempty(turntableController)
         error('Looks like there is no turntable controller in the workspace. Please call turntableConnect');
     end
     
-    if nargin == 0
+    if nargin < 2
+        ignoreCounterClockwiseWarning = true;
+    end
+    if nargin < 1 
         rotationDirection = 'clockwise';
+    end
+
+    if rotationDirection == 'counterclockwise' && not(ignoreCounterClockwiseWarning)
+        warning('You should not run this function directly using counterclockwise. Since the calibration is still not exploited in the code, and that means that ticking counterclockwise will not snap to the same angles as ticking clockwise');
     end
 
     exitStatus = turntablePrivateStartMonitorStop(rotationDirection, ...

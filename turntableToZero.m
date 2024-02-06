@@ -35,8 +35,8 @@ function exitStatus = turntableToZero(rotationDirection)
     % The following commands will be unnecessary once code is added to act
     % on the system calibration.
     if strcmp(rotationDirection, 'counterclockwise')
-        turntableTick('counterclockwise');
+        turntableTick('counterclockwise', true); % The true tels the function to ignore the counterclockwise warning.
     end
     
-    turntableTick('counterclockwise');
+    turntableTick('counterclockwise', true);
     exitStatus = turntableTick('clockwise');
