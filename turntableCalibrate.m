@@ -1,9 +1,18 @@
+% turntableCalibrate Turntable calibration
+% 
+% turntableCalibrate() calculates certain values for the turntable, e.g.
+% what is the voltage when the step sensor ticks to the next angle, or 
+% how many voltage-up reading we get when going from one angle to the next.
+% TODO: This function currently works, but its output is not used by the 
+% other functions, so there is no difference if you run it or not.  
+% 
+% Author: Enzo De Sena
+% Date 6/2/2024
 function turntableCalibrate()
     global turntableController;
     if isempty(turntableController)
         error('Looks like there is no turntable controller in the workspace. Please call turntableConnect');
     end
-
 
 
 function runStepCalibration()
@@ -64,8 +73,6 @@ function runZeroCalibration()
     ylabel('Zero sensor [V]')
     turntableController.averageZeroSensorGroupLength = calculateAverageLengthOfGroups(voltage, turntableController.zeroVoltageThreshold);
     disp(['Average length of groups above threshold: ', num2str(turntableController.averageZeroSensorGroupLength)]);
-
-
 
 
 function averageLength = calculateAverageLengthOfGroups(signal, threshold)

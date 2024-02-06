@@ -23,5 +23,4 @@ function turntableStart(direction)
     
     writeDigitalPin(turntableController.arduinoObj, 'D9', 0); % Disengage the Brake for Channel A
     %writeDigitalPin(turntableController.arduinoObj, 'D3', 1); % Spins the motor on Channel A at full speed
-    
     writePWMVoltage(turntableController.arduinoObj, 'D3', 4); % Can be used to control rotation speed (min 0, max 5)

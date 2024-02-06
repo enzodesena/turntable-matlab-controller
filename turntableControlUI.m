@@ -1,8 +1,8 @@
 function turntableControlUI
-    global turntableController;
-    if isempty(turntableController)
-        turntableConnect();
-    end
+%     global turntableController;
+%     if isempty(turntableController)
+%         turntableConnect();
+%     end
 
     % Create a figure for the UI
     fig = figure('Name', 'Turntable Control', 'Position', [100, 100, 350, 250]);
@@ -12,8 +12,10 @@ function turntableControlUI
         'Position', [50, 175, 100, 40], 'Callback', @tickCW);
 
     % Button for ticking counterclockwise
-    uicontrol('Style', 'pushbutton', 'String', 'Tick CCW', ...
-        'Position', [200, 175, 100, 40], 'Callback', @tickCCW);
+    % Commenting this one out since it still does not work (needs
+    % calibration procedure)
+%     uicontrol('Style', 'pushbutton', 'String', 'Tick CCW', ...
+%         'Position', [200, 175, 100, 40], 'Callback', @tickCCW);
 
     % Button to return to zero clockwise
     uicontrol('Style', 'pushbutton', 'String', 'Go to 0 deg (CW)', ...
@@ -23,17 +25,17 @@ function turntableControlUI
     uicontrol('Style', 'pushbutton', 'String', 'Go to 0 deg (CCW)', ...
         'Position', [200, 125, 100, 40], 'Callback', @resetCCW);
 
-    % Button to start rotation clockwise
-    uicontrol('Style', 'pushbutton', 'String', 'Start CW', ...
-        'Position', [50, 75, 100, 40], 'Callback', @startRotateCW);
-
-    % Button to start rotation counterclockwise
-    uicontrol('Style', 'pushbutton', 'String', 'Start CCW', ...
-        'Position', [200, 75, 100, 40], 'Callback', @startRotateCCW);
-
-    % Button to stop rotation
-    uicontrol('Style', 'pushbutton', 'String', 'Stop', ...
-        'Position', [125, 25, 100, 40], 'Callback', @stopRotate);
+%     % Button to start rotation clockwise
+%     uicontrol('Style', 'pushbutton', 'String', 'Start CW', ...
+%         'Position', [50, 75, 100, 40], 'Callback', @startRotateCW);
+% 
+%     % Button to start rotation counterclockwise
+%     uicontrol('Style', 'pushbutton', 'String', 'Start CCW', ...
+%         'Position', [200, 75, 100, 40], 'Callback', @startRotateCCW);
+% 
+%     % Button to stop rotation
+%     uicontrol('Style', 'pushbutton', 'String', 'Stop', ...
+%         'Position', [125, 25, 100, 40], 'Callback', @stopRotate);
 
     % Text field for displaying the current angle
     angleDisplay = uicontrol('Style', 'text', 'String', 'Angle: 0', ...

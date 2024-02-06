@@ -4,6 +4,8 @@
 % by 2.5 degrees (either direction). Stops after 5 seconds if it hasn't 
 % reached the next tick. Do not close the program while this function is 
 % running, or else, the turntable will continue rotating.
+% IMPORTANT NOTE: until the calibration work is completed, you should only
+% really use this function as "clockwise". 
 % 
 % DIRECTION can either be 'clockwise' or 'counterclockwise'.
 %
