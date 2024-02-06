@@ -1,7 +1,7 @@
-% turntablePrivateStartAndMonitor Turntable start and monitor function 
+% turntablePrivateStartMonitorStop Turntable start and monitor function 
 % (private function)
 % 
-% turntablePrivateStartAndMonitor(DIRECTION, PINTOMONITOR, THRESHOLD, 
+% turntablePrivateStartMonitorStop(DIRECTION, PINTOMONITOR, THRESHOLD, 
 % MINIMUMNUMSEC, MAXNUMSEC) Starts rotating the 
 % turntable while monitoring a certain voltage pin on the Arduino. The
 % turntable will stop if the average of two readings on PINTOMONITOR is 
@@ -20,7 +20,7 @@
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
-function successful = turntablePrivateStartAndMonitor(rotationDirection, ...
+function successful = turntablePrivateStartMonitorStop(rotationDirection, ...
         pinToMonitor, threshold, minimumNumSec, maxNumSec)
     global turntableController;
     
