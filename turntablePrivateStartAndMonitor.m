@@ -20,11 +20,9 @@
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
-function successful = turntablePrivateStartAndMonitor(rotationDirection, pinToMonitor, threshold, minimumNumSec, maxNumSec)
+function successful = turntablePrivateStartAndMonitor(rotationDirection, ...
+        pinToMonitor, threshold, minimumNumSec, maxNumSec)
     global turntableController;
-    if isempty(turntableController)
-        error('Looks like there is no turntable controller in the workspace. Please call turntableConnect.');
-    end
     
     %% Start rotating
     turntablePrivateStart(rotationDirection);

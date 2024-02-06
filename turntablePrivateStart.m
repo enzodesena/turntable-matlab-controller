@@ -11,9 +11,6 @@
 function turntablePrivateStart(direction)
     assert(strcmp(direction, 'clockwise') || strcmp(direction, 'counterclockwise'));
     global turntableController;
-    if isempty(turntableController)
-        error('Looks like there is no turntable controller in the workspace. Please call turntableConnect');
-    end
     
     if strcmp(direction, 'counterclockwise')
         writeDigitalPin(turntableController.arduinoObj, 'D12', 1);
