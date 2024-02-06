@@ -1,8 +1,8 @@
 % turntablePrivateStartMonitorStop Turntable start and monitor function 
 % (private function)
 % 
-% turntablePrivateStartMonitorStop(DIRECTION, PINTOMONITOR, THRESHOLD, 
-% MINIMUMNUMSEC, MAXNUMSEC) Starts rotating the 
+% EXITSTATUS = turntablePrivateStartMonitorStop(DIRECTION, PINTOMONITOR, 
+% THRESHOLD, MINIMUMNUMSEC, MAXNUMSEC) Starts rotating the 
 % turntable while monitoring a certain voltage pin on the Arduino. The
 % turntable will stop if the average of two readings on PINTOMONITOR is 
 % above THRESHOLD (in volts). 
@@ -16,11 +16,13 @@
 % transitioning through an angle it will not stop immediately.
 % MAXNUMSEC is the duration after which the turntable will give up on
 % continuing to rotate.
+% EXITSTATUS is 1 if the turntable successfully reached a point where the 
+% monitored pin went above the threshold, and is 0 otherwise.
 %
 %
 % Author: Enzo De Sena
 % Date 3/2/2024
-function successful = turntablePrivateStartMonitorStop(rotationDirection, ...
+function exitStatus = turntablePrivateStartMonitorStop(rotationDirection, ...
         pinToMonitor, threshold, minimumNumSec, maxNumSec)
     global turntableController;
     
@@ -38,14 +40,14 @@ function successful = turntablePrivateStartMonitorStop(rotationDirection, ...
             % on an angle tag, it ignores the first half second (presumably 
             % it can't rotate 2.5 degrees in less than that)
             if (voltage + previousVoltage)/2 > threshold
-                successful = true;
+                exitStatus = true;
                 break
             end
             previousVoltage = voltage;
         end
         if secondsSinceStartedRotation > maxNumSec
             warning('This is taking too long. Stopping..')
-            successful = false;
+            exitStatus = false;
             break
         end
     end
