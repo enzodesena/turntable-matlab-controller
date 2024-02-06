@@ -4,7 +4,6 @@
 % You should not run this function directly. 
 % Use turntableTick or turntableRotateToZero instead.
 % 
-%
 % Author: Enzo De Sena
 % Date 3/2/2024
 function turntablePrivateStop()

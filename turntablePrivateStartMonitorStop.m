@@ -19,7 +19,6 @@
 % EXITSTATUS is 1 if the turntable successfully reached a point where the 
 % monitored pin went above the threshold, and is 0 otherwise.
 %
-%
 % Author: Enzo De Sena
 % Date 3/2/2024
 function exitStatus = turntablePrivateStartMonitorStop(rotationDirection, ...

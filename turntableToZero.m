@@ -9,7 +9,6 @@
 % EXITSTATUS is 1 if the turntable successfully reached the 0 degrees 
 % location, and is 0 otherwise.
 % 
-%
 % Author: Enzo De Sena
 % Date 3/2/2024
 function exitStatus = turntableToZero(rotationDirection)
