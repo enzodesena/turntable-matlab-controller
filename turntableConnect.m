@@ -49,7 +49,7 @@ function turntableConnect(serialPort)
         error('No current is being drawn by the motor. Are you sure the turntable cable is connected?')
     end
     disp('Motor is drawing current, so ok. The turntable is now ready to be used.');
-    disp('If you would like to keep track of the angle, you can .')
+    disp('The current location is unknown. If you would like to keep track of the angle, you can run turntableToZero().')
 
 
     %% Initialise struct fields
