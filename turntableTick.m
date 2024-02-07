@@ -26,7 +26,7 @@ function exitStatus = turntableTick(rotationDirection, ignoreCounterClockwiseWar
         rotationDirection = 'clockwise';
     end
 
-    if rotationDirection == 'counterclockwise' && not(ignoreCounterClockwiseWarning)
+    if strcmp(rotationDirection, 'counterclockwise') && not(ignoreCounterClockwiseWarning)
         warning('You should not run this function directly using counterclockwise. Since the calibration is still not exploited in the code, and that means that ticking counterclockwise will not snap to the same angles as ticking clockwise');
     end
 
